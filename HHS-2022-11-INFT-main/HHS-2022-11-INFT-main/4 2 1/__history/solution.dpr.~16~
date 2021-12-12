@@ -24,13 +24,9 @@ var
   iTest: Int64;
   min, max, incBy : Int64;
   updateBy : String;
-  identity : string;
-  test : string;
-  hash : integer;
 
   tf: Textfile;
-  a: textfile;
-  b: textfile;
+
 { ==============================================================================
 }
 
@@ -140,25 +136,9 @@ end;
 }
 
 begin
- identity:='';
- while identity = '' do
-   if fileexists('.\authentication\Authenticate.txt') = true then
-   begin
-   assignfile(a,'.\authentication\Authenticate.txt');
-   rewrite(a);
-   readln(a,identity);
-   closefile(a);
-   Writeln('File loaded');
-   end;
-   begin
-     assignfile(b,'C:\Users\James Easson\Documents\4 2 1\question\test'+identity+'.txt');
-     readln(b,test);
-     hash := pos('#',test);
-     min := strtoint(copy(test,1,hash-1));
-     max := strtoint(copy(test,hash+1,5));
-     closefile(b);
-   end;
- try
+  try
+  min := 1;
+  max := 100;
   incBy := 1;
   updateBy := '+';
 
@@ -176,7 +156,7 @@ begin
 
       showProgressBar();
 
-      AssignFile(tf, 'C:\Users\James Easson\Documents\4 2 1\test' + IntToStr(iTest) + '.txt');
+      AssignFile(tf, '\\pearl\INFT11\Test Data\test' + IntToStr(iTest) + '.txt');
       Rewrite(tf);
 
       WriteLN(tf, 'Testing: ', iTest, ' = ', endsWITH(iTest, endOn));

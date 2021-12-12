@@ -142,13 +142,11 @@ end;
 begin
  identity:='';
  while identity = '' do
-   if fileexists('.\authentication\Authenticate.txt') = true then
+   if fileexists('C:\Users\James Easson\Documents\4 2 1\authentication\Authenticate.txt') = false then
    begin
-   assignfile(a,'.\authentication\Authenticate.txt');
-   rewrite(a);
+   assignfile(a,'C:\Users\James Easson\Documents\4 2 1\authentication\Authenticate.txt');
    readln(a,identity);
    closefile(a);
-   Writeln('File loaded');
    end;
    begin
      assignfile(b,'C:\Users\James Easson\Documents\4 2 1\question\test'+identity+'.txt');

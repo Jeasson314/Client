@@ -145,7 +145,6 @@ begin
    if fileexists('.\authentication\Authenticate.txt') = true then
    begin
    assignfile(a,'.\authentication\Authenticate.txt');
-   rewrite(a);
    readln(a,identity);
    closefile(a);
    Writeln('File loaded');
